@@ -1,0 +1,16 @@
+<form class="currency-form">
+    <div class="form-group">
+        <label>From Euro</label>
+        <input class="form-control" ng-change="cConverterCtrl.euroChanged()" ng-model="cConverterCtrl.euro" type="text"
+               placeholder="Euro">
+    </div>
+    <div class="form-group">
+        <label>To Currency</label>
+        <select class="form-control" ng-change="cConverterCtrl.convert()" name="repeatSelect" id="repeatSelect"
+                ng-model="cConverterCtrl.selectedCurrency">
+            <option ng-repeat="rate in cConverterCtrl.rates" value="{{rate.value}}">{{rate.name}} - {{rate.value}}
+            </option>
+        </select>
+    </div>
+    <div ng-if="cConverterCtrl.result" class="alert alert-info" role="alert">= {{cConverterCtrl.result}}</div>
+</form>
